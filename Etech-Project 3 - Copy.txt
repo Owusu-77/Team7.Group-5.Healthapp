@@ -1,0 +1,21 @@
+
+
+Engrs: Owusu Agyeman | Elvine Fred | Tabot Dympna | Koge Festus | 
+Felix Fonkeng | Benjamin Adeoye  | Fule Esapa
+
+Jenkins group level project 
+Problem1: 
+- What is a Jenkins plugins? 
+- Name 5 jenkins plugins and their use cases 
+- What is the differences between scripted pipeline and declarative pipeline? 
+- Use generic syntax to demo scripted and declarative pipeline as code 
+- What is a stage-level variable and how is it different from top-level variables? 
+- What informations does Jenkins need to integrate with github platform? 
+- How do inject script into your pipeline? 
+- What are the similarities between a dependency and a plugin? 
+- How do you configure service account credentials for Jenkins? 
+
+Problem2: 
+- Build an N-STAGE Jenkins pipeline where N=number of group members such that each stage should represent members name 
+- Use the git flow best practice and add a ReadMe file on your steps to contribute to a project 
+- Each member should write a simple two steps of (ps -ef and sudo systemctl status Jenkins) 
