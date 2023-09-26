@@ -8,7 +8,7 @@ Problem1:
 - What is a Jenkins plugins? 
 Ans:
 A Jenkins plugin is a piece of program code that when installed enables jenkins to 
-extend its functionalities beyond its initial configuration
+extend its functionalities beyond its initial configuration Engr. Owusu
 - Name 5 jenkins plugins and their use cases 
 - What is the differences between scripted pipeline and declarative pipeline? 
 - Use generic syntax to demo scripted and declarative pipeline as code 
