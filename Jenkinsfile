@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('1-Clone code') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']]])
             }
         }
 
@@ -20,6 +20,7 @@ pipeline {
                 stage('Upgrade') {
                     steps {
                         sh 'whoami'
+                    
                     }
                 }
             }
@@ -28,6 +29,12 @@ pipeline {
         stage('Post_Upgrade') {
             steps {
                 echo "This upgrade was a success"
+            }
+        }
+
+        stage('Jenkins_Status') {
+            steps {
+                sh 'sudo systemctl status jenkins'
             }
         }
 
