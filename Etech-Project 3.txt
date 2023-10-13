@@ -1,0 +1,80 @@
+
+
+Engrs: Owusu Agyeman | Elvine Fred | Tabot Dympna | Koge Festus | 
+Felix Fonkeng | Benjamin Adeoye  | Fule Esapa
+
+Jenkins group level project 
+Problem1: 
+- What is a Jenkins plugins? 
+Ans:
+A Jenkins plugin is a piece of program code that when installed enables jenkins to 
+extend its functionalities beyond its initial configuration. Engr. Owusu
+- Name 5 jenkins plugins and their use cases
+i. Docker Pipeline- This is a Jenkins plugin which allows building, testing, and using Docker images 
+from Jenkins Pipeline projects
+
+ii. Jacoco-plugin (JaCoCo)-A plugin for Jenkins to capture and visualize code coverage testing results for 
+projects using the JaCoCo for code-coverage analysis.
+
+iii.Blue Ocean- This plugin offers intuitive CD pipeline visualizations, a 
+user-friendly pipeline editor, personalized Jenkins UI, pinpoint issue identification, and seamless 
+integration with GitHub and Bitbucket for efficient collaboration.
+
+iv.PIT Mutation- This plugin displays pitmutation report statistics
+
+v..SonarQube Scanner- This plugin allow easy integration of SonarQube™, the open source platform for 
+continuous Inspection of code quality. 
+
+- What is the differences between scripted pipeline and declarative pipeline? 
+Scripted Pipelines begin with "nodes" when declaring the script whereas declarative pipelines begin
+with pipeline when opening the "script"
+- Use generic syntax to demo scripted and declarative pipeline as code 
+
+scripted pipeline:
+node{
+	stages{
+		stage(1-'clonecode'){
+			actions
+		}
+		stage(2-'artifactbuild'){
+			actions
+		}
+		stage('3-unitest'){
+			actions
+		}
+	}
+}
+
+
+declarative pipeline:
+pipeline{
+	agent any
+	stages{
+		stage('1-clonecode'){
+			steps{
+				sh 'action1'
+			}
+		}
+		stage('2-artifactbuild'){
+			steps{
+				sh 'action2'
+			}
+		}
+		stage('3-unitest'){
+			steps{
+				sh 'actions3'
+			}
+		}
+	} 
+
+- What is a stage-level variable and how is it different from top-level variables? 
+
+- What informations does Jenkins need to integrate with github platform? 
+- How do inject script into your pipeline? 
+- What are the similarities between a dependency and a plugin? 
+- How do you configure service account credentials for Jenkins? 
+
+Problem2: 
+- Build an N-STAGE Jenkins pipeline where N=number of group members such that each stage should represent members name 
+- Use the git flow best practice and add a ReadMe file on your steps to contribute to a project 
+- Each member should write a simple two steps of (ps -ef and sudo systemctl status Jenkins) 
