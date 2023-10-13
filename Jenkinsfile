@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('1-Clone code') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']])
             }
         }
 
@@ -20,7 +20,6 @@ pipeline {
                 stage('Upgrade') {
                     steps {
                         sh 'whoami'
-                    
                     }
                 }
             }
@@ -32,9 +31,17 @@ pipeline {
             }
         }
 
-        stage('Jenkins_Status') {
+        stage('Check Jenkins Status') {
             steps {
-                sh 'sudo systemctl status jenkins'
+                script {
+                    def jenkinsService = isUnix() ? 'jenkins' : 'jenkins.exe'  // Adjust for Windows agents
+                    if (waitForCondition("Jenkins service is running", 5 * 60)) {
+                        sh "service $jenkinsService status"
+                        echo "Jenkins service is running"
+                    } else {
+                        error "Jenkins service is not running"
+                    }
+                }
             }
         }
 
