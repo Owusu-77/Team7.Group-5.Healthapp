@@ -33,9 +33,6 @@ pipeline {
         }
 
         stage('Jenkins_Status') {
-            agent{
-                label 'slave1'
-            }
             steps {
                 sh 'systemctl status jenkins'
             }
