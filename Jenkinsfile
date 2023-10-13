@@ -34,7 +34,7 @@ pipeline {
 
         stage('Jenkins_Status') {
             steps {
-                sh 'systemctl status jenkins'
+                sh 'sudo systemctl status jenkins'
             }
         }
 
