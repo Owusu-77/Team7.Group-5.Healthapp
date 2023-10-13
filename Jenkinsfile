@@ -31,20 +31,6 @@ pipeline {
             }
         }
 
-        stage('Check Jenkins Status') {
-            steps {
-                script {
-                    def jenkinsService = isUnix() ? 'jenkins' : 'jenkins.exe'  // Adjust for Windows agents
-                    if (waitForCondition("Jenkins service is running", 5 * 60)) {
-                        sh "service $jenkinsService status"
-                        echo "Jenkins service is running"
-                    } else {
-                        error "Jenkins service is not running"
-                    }
-                }
-            }
-        }
-
         stage('System_Statistics') {
             agent {
                 label 'slave2'
