@@ -17,8 +17,8 @@ pipeline {
                 }
                 stage('Upgrade') {
                     steps {
-                        sh 'sudo apt update'
-                        sh 'sudo apt upgrade'
+                        sh 'whoami'
+                    
                     }
                 }
             }
