@@ -1,15 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        label 'slave1'
+    }
     stages {
-        stage('Jenkins_Status') {
-            steps {
-                sh 'sudo systemctl status jenkins'
-            }
-        }
         stage('1-Clone code') {
-            agent{
-                label 'slave1'
-            }
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']]])
             }
@@ -35,6 +29,12 @@ pipeline {
         stage('Post_Upgrade') {
             steps {
                 echo "This upgrade was a success"
+            }
+        }
+
+        stage('Jenkins_Status') {
+            steps {
+                sh 'sudo systemctl status jenkins'
             }
         }
 
