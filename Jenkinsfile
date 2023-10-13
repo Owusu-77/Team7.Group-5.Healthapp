@@ -6,7 +6,8 @@ pipeline{
            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Team7-git-id', url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']])
 			}
 		}
-		parallel{
+		stage('Parallel_stage'){
+        parallel{
 			stage('Identity'){
 				steps{
 					echo "This is Team7.Group-5.Healthapp"
@@ -25,6 +26,7 @@ pipeline{
 				}
 			}
 		}
+        }
 		stage('Jenkins_Status'){
 			steps{
 				sh 'systemctl status jenkins'
