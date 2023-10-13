@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'slave1'
+    }
     stages {
         stage('1-Clone code') {
             steps {
@@ -31,12 +33,18 @@ pipeline {
         }
 
         stage('Jenkins_Status') {
+            agent{
+                label 'slave1'
+            }
             steps {
                 sh 'systemctl status jenkins'
             }
         }
 
         stage('System_Statistics') {
+            agent {
+                label 'slave2'
+            }
             steps {
                 sh 'lscpu'
                 sh 'df -h'
