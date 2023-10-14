@@ -9,10 +9,10 @@ pipeline {
         }
         
         stage('Clone Code') {
-            agent {
-                label 'slave1'
-            }
             steps {
+                agent {
+                    label 'slave1'
+                }
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Owusu-77/Team7.Group-5.Healthapp.git']]])
             }
         }
@@ -20,19 +20,19 @@ pipeline {
         stage('Parallel Stages') {
             parallel {
                 stage('Identity') {
-                    agent {
-                        label 'slave1'
-                    }
                     steps {
+                        agent {
+                            label 'slave1'
+                        }
                         echo "This is Team7.Group-5.Healthapp"
                         echo "This group has Engrs: Owusu Agyeman | Elvine Fred | Tabot Dympna | Koge Festus | Felix Fonkeng | Benjamin Adeoye | Fule Esapa"
                     }
                 }
                 stage('Upgrade') {
-                    agent {
-                        label 'slave2'
-                    }
                     steps {
+                        agent {
+                            label 'slave2'
+                        }
                         sh 'whoami'
                     }
                 }
@@ -40,19 +40,16 @@ pipeline {
         }
 
         stage('Post_Upgrade') {
-            agent {
-                label 'slave2'
-            }
             steps {
                 echo "This upgrade was a success"
             }
         }
 
         stage('System_Statistics') {
-            agent {
-                label 'master'
-            }
             steps {
+                agent {
+                    label 'master'
+                }
                 sh 'lscpu'
                 sh 'df -h'
                 sh 'uptime'
