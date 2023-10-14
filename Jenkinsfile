@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Clone Code') {
+        stage('Clone_Code') {
             agent {
                 label 'slave1'
             }
