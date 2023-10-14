@@ -51,7 +51,7 @@ pipeline {
 
         stage('System_Statistics') {
             agent {
-                label 'master'
+                label 'slave1'
             }
             steps {
                 sh 'lscpu'
